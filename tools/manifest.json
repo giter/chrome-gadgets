@@ -1,0 +1,14 @@
+{
+  "name": "WebHelpers",
+  "version": "0.1",
+  "manifest_version":2,
+  "description": "常用WEB开发工具集",
+  "browser_action": {
+    "default_icon": "ico.png",
+    "default_title": "Useful Web Helpers",
+    "default_popup": "main.html"
+  },
+  "permissions": [
+    "tabs","http://*.xmd5.org/","http://*.jxlib.com/"
+  ]
+}
