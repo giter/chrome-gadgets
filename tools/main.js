@@ -26,6 +26,26 @@ $(function(){
 			}
 		});
 	});
+	
+	
+	$("#md5decbtn").click(function(){
+		$("#md5plain").html("Loading...");
+		$.ajax({url:"http://www.xmd5.org/md5/index.asp"}).success(function(){
+			$.ajax({url:'http://www.xmd5.org/js/on.js'}).success(function(){
+				$.ajax({
+					url:'http://www.xmd5.org/md5/search.asp',
+					headers:{
+						"Referer":"http://www.xmd5.org/md5/index.asp"
+					},
+					data:{
+						hash:$("#md5secret").val()
+					}
+				}).success(function(){
+					alert(1);
+				});
+			});
+		});
+	});
 
 
 	$("#libbtn").click(function(){
@@ -40,6 +60,21 @@ $(function(){
 				chrome.tabs.create({'url': 'http://libsys.jxlib.com/reader.asp?WCI=Continue'}, function(window) {});
 			}
 		});
+	});
+	
+	$("#btnpwdgen").click(function(){
+		
+		var x =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()-=_+`<>?/.,;:";
+		var m = $("#pwdlen").val();
+		var res = "";
+		
+		
+		for(var i=1;i<=m;i++){
+			res = res.concat(x[parseInt(Math.random()*x.length)]);
+		}
+		
+		$("#pwdresult").val(res);
+		
 	});
 
 });

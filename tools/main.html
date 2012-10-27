@@ -7,13 +7,18 @@
 	<body>
 
 		<a class='toggle' for='md5encode' href='#'>MD5加密</a>
+		<a class='toggle' for='md5decode' href='#'>MD5解密</a>
+		<a class='toggle' for='pwdgen' href='#'>随机密码</a>
 		<a class='toggle' for='libauto' href='#'>自动续借</a>
 		<a id='center' href='#'>应用中心</a>
 
 		<div class='form' id='md5encode' style='display:none'>
 			<dl>
 				<dt>明文</dt>
-				<dd><input id='md5str' type='text'/></dd>
+				<dd>
+					<input id='md5str' type='text'/>
+					<input type='submit' id='md5btn' value='加密' />
+				</dd>
 			</dl>
 			<dl>
 				<dt>密文</dt>
@@ -21,7 +26,21 @@
 			</dl>
 			<dl>
 				<dt></dt>
-				<dd><input type='submit' id='md5btn' /></dd>
+				<dd></dd>
+			</dl>
+		</div>
+		
+		<div class='form' id='md5decode' style='display:none'>
+			<dl>
+				<dt>密文</dt>
+				<dd>
+					<input id='md5secret' type='text'/>
+					<input type='submit' id='md5decbtn' value='解密' />
+				</dd>
+			</dl>
+			<dl>
+				<dt>明文</dt>
+				<dd><span id='md5plain'></span>&nbsp;</dd>
 			</dl>
 		</div>
 
@@ -32,9 +51,28 @@
 					<!--<input id='liblic' type='text'/>-->
 					<select id='liblic' >
 						<option value='JY00081725'>JY00081725</option>
-						<option value='JY00081725'>JY00087240</option>
+						<option value='JY00087240'>JY00087240</option>
 					</select>
 					<input type='submit' id='libbtn' value='登录' /> 
+				</dd>
+			</dl>
+		</div>
+		
+		<div class='form' id='pwdgen' style='display:none'>
+			<dl>
+				<dt>位数<dd>
+				<dd>
+					<select id='pwdlen'>
+						<option value='8'>8</option>
+						<option value='12'>12</option>
+						<option value='16'>16</option>
+					</select>
+					<input type='submit' value='生成' id='btnpwdgen'/>
+				</dd>
+				<dt>密码</dt>
+				<dd>
+					<input type='text' id='pwdresult'></input>
+					&nbsp;
 				</dd>
 			</dl>
 		</div>
