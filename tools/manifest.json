@@ -9,6 +9,9 @@
     "default_popup": "main.html"
   },
   "permissions": [
-    "tabs","http://*.xmd5.org/","http://*.jxlib.com/"
+    "tabs",
+    "webRequest","webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
   ]
 }

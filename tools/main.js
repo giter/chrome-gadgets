@@ -1,5 +1,5 @@
 $(function(){
-
+	
 	$("#center").click(function(){
 		chrome.tabs.create({'url': 'chrome://chrome/extensions/'}, function(window) {});
 	});
@@ -30,20 +30,10 @@ $(function(){
 	
 	$("#md5decbtn").click(function(){
 		$("#md5plain").html("Loading...");
-		$.ajax({url:"http://www.xmd5.org/md5/index.asp"}).success(function(){
-			$.ajax({url:'http://www.xmd5.org/js/on.js'}).success(function(){
-				$.ajax({
-					url:'http://www.xmd5.org/md5/search.asp',
-					headers:{
-						"Referer":"http://www.xmd5.org/md5/index.asp"
-					},
-					data:{
-						hash:$("#md5secret").val()
-					}
-				}).success(function(){
-					alert(1);
-				});
-			});
+		$.get("http://md5.gromweb.com/query/"+$("#md5secret").val()).success(function(html){
+			$("#md5plain").html(html);
+		}).fail(function(){
+			$("#md5plain").html("Not found!");
 		});
 	});
 
