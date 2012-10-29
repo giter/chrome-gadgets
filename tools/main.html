@@ -60,13 +60,21 @@
 		
 		<div class='form' id='pwdgen' style='display:none'>
 			<dl>
-				<dt>位数<dd>
+				<dt>规则<dd>
 				<dd>
 					<select id='pwdlen'>
 						<option value='8'>8</option>
-						<option value='12'>12</option>
+						<option value='12' selected="selected">12</option>
 						<option value='16'>16</option>
+					</select> 位 
+					
+					<select id='pwdtype'>
+						<option value="0">复杂密码</option>
+						<option value="1">小写字母+数字</option>
+						<option value="2">大小写字母+数字</option>
+						<option value="3">仅大小写字母</option>
 					</select>
+					
 					<input type='submit' value='生成' id='btnpwdgen'/>
 				</dd>
 				<dt>密码</dt>

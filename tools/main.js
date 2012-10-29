@@ -54,7 +54,22 @@ $(function(){
 	
 	$("#btnpwdgen").click(function(){
 		
+		var type = $("#pwdtype").val();
+		
 		var x =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~!@#$%^&*()-=_+`<>?/.,;:";
+		
+		switch(type){
+		case "1":
+			x = "abcdefghijklmnopqrstuvwxyz0123456789";
+			break;
+		case "2":
+			x = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			break;
+		case "3":
+			x = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			break;
+		}
+		
 		var m = $("#pwdlen").val();
 		var res = "";
 		
