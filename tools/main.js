@@ -6,8 +6,9 @@ $(function(){
 
 	$(".toggle").click(function(){
 		$(".form").hide();
-		$(".toggled").removeClass("toggled");
-		$(this).addClass("toggled");
+		$(".label-info").removeClass("label-info");
+		$(".label").removeClass("label");
+		$(this).addClass("label-info").addClass("label");
 		$("#"+$(this).attr("for")).slideDown('fast');
 	});
 
@@ -80,6 +81,17 @@ $(function(){
 		
 		$("#pwdresult").val(res);
 		
+	});
+	
+	$("#btn-base64encode").click(function(){
+		var val = $("#b64plain").val();
+		$("#b64secret").html(base64encode(val));
+	});
+	
+	$("#form-base64-decode .btn-b64decode").click(function(){
+		var val = $("#form-base64-decode .b64secret").val();
+		val = (val || "").trim();
+		$("#form-base64-decode .b64plain").html(base64decode(val));
 	});
 
 });
